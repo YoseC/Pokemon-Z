@@ -4,19 +4,15 @@ import { MatCardModule } from '@angular/material/card';
 import { Store } from '@ngrx/store';
 import { PokemonState } from '../../store/pokemon.reducer';
 import { PokemonGraphQLService } from '../../services/pokemon-graphql.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-inicio',
-  imports: [MatButtonModule, MatCardModule],
+  imports: [MatButtonModule, MatCardModule, RouterModule],
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.scss'
 })
-export class InicioComponent implements OnInit {
-  constructor(private pokemonGraphQLService: PokemonGraphQLService) {}
+export class InicioComponent {
 
-  ngOnInit() {
-    this.pokemonGraphQLService.getPokemonList(5).subscribe(pokemons => {
-      console.log('Pokémon obtenidos desde GraphQL:', pokemons);
-    });
-  }
+
 }
